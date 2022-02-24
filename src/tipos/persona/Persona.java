@@ -13,12 +13,12 @@ public class Persona extends Object {
 	private List<String> apellidos;
 	private LocalDate fechaNacimiento;
 
-	// 3. Definir un constructor v�lido
+	// 3. Definir un constructor valido
 	public Persona(String nombre, List<String> apellidos, LocalDate fecha) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		fechaNacimiento = fecha;
-	}
+	} 
 
 	public Persona(String nombre) {
 		this(nombre, new ArrayList<>(), LocalDate.MIN);
