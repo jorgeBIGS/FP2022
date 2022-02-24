@@ -15,6 +15,11 @@ public class TestPersona {
 		Persona p = new Persona("Jorge", apellidos, 
 				LocalDate.of(1981, 5, 3));
 		System.out.println(p);
+		
+		Persona p2 = new Persona("Jorge", apellidos, 
+				LocalDate.of(1981, 5, 3));
+		
+		System.out.println(p.equals(p2));
 	}
 
 }
