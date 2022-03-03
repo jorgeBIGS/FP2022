@@ -20,6 +20,8 @@ public class TestPersona {
 				LocalDate.of(1981, 5, 3));
 		
 		System.out.println(p.equals(p2));
+		
+		p = new Persona("Johny");
 	}
 
 }
