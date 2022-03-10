@@ -39,4 +39,10 @@ public class PuntoImpl1 implements Punto {
 	public Double getDistanciaAlOrigen() {
 		return Math.sqrt(x * x + y * y);
 	}
+
+	@Override
+	public String toString() {
+		return "PuntoImpl1 [x=" + x + ", y=" + y + "]";
+	}
+	
 }

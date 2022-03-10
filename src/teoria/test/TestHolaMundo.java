@@ -1,6 +1,6 @@
 package teoria.test;
 
-import teoria.Utiles;
+import teoria.utiles.Utiles;
 
 public class TestHolaMundo {
 
