@@ -9,8 +9,8 @@ public class Coordenada implements Comparable<Coordenada> {
 	private Double latitud, longitud;
 
 	public Coordenada(Double latitud, Double longitud) {
-		Checkers.checkCondition(latitud<=90 && latitud>=-90);
-		Checkers.checkCondition(longitud<=180 && longitud>=-180);
+		Checkers.checkGoodCondition(latitud<=90 && latitud>=-90);
+		Checkers.checkGoodCondition(longitud<=180 && longitud>=-180);
 		this.latitud = latitud;
 		this.longitud = longitud;
 	}
@@ -22,12 +22,12 @@ public class Coordenada implements Comparable<Coordenada> {
 	public Coordenada(String s) {
 		// “(-1.5, 0.22)”
 		String[] splits = s.replace('(', ' ').replace(")", "").split(DELIM);
-		Checkers.checkCondition(splits.length == 2);
+		Checkers.checkGoodCondition(splits.length == 2);
 		Double latitud = Double.valueOf(splits[0].trim());
 		Double longitud = Double.valueOf(splits[1].trim());
 		
-		Checkers.checkCondition(latitud<=90 && latitud>=-90);
-		Checkers.checkCondition(longitud<=180 && longitud>=-180);
+		Checkers.checkGoodCondition(latitud<=90 && latitud>=-90);
+		Checkers.checkGoodCondition(longitud<=180 && longitud>=-180);
 		this.latitud = latitud;
 		this.longitud = longitud;
 	}
@@ -37,7 +37,7 @@ public class Coordenada implements Comparable<Coordenada> {
 	}
 
 	public void setLatitud(Double latitud) {
-		Checkers.checkCondition(latitud<=90 && latitud>=-90);
+		Checkers.checkGoodCondition(latitud<=90 && latitud>=-90);
 		this.latitud = latitud;
 	}
 
@@ -46,7 +46,7 @@ public class Coordenada implements Comparable<Coordenada> {
 	}
 
 	public void setLongitud(Double longitud) {
-		Checkers.checkCondition(longitud<=180 && longitud>=-180);
+		Checkers.checkGoodCondition(longitud<=180 && longitud>=-180);
 		this.longitud = longitud;
 	}
 

@@ -18,7 +18,7 @@ public class Avistamiento implements Comparable<Avistamiento>{
 	public Avistamiento(String s) {
 		//“21/01/2019; Sevilla; 30; CIRCULAR; (37.38, -5.97)”
 		String [] splits = s.split(DELIM);
-		Checkers.checkCondition(splits.length==5);
+		Checkers.checkGoodCondition(splits.length==5);
 		
 		DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate fecha = LocalDate.parse(splits[0].trim(), formateador);
@@ -29,9 +29,9 @@ public class Avistamiento implements Comparable<Avistamiento>{
 		Forma forma = Forma.valueOf(splits[3].trim());
 		Coordenada ubicacion = new Coordenada(splits[4].trim());
 		
-		Checkers.checkCondition(!duracion.isNegative() && !duracion.isZero());
+		Checkers.checkGoodCondition(!duracion.isNegative() && !duracion.isZero());
 		LocalDate hoy = LocalDate.now();
-		Checkers.checkCondition(fecha.equals(hoy ) || fecha.isBefore(hoy));
+		Checkers.checkGoodCondition(fecha.equals(hoy ) || fecha.isBefore(hoy));
 		
 		this.fecha = fecha;
 		this.lugar = lugar;
@@ -45,9 +45,9 @@ public class Avistamiento implements Comparable<Avistamiento>{
 	}
 	
 	public Avistamiento(LocalDate fecha, String lugar, Duration duracion, Forma forma, Coordenada ubicacion) {
-		Checkers.checkCondition(!duracion.isNegative() && !duracion.isZero());
+		Checkers.checkGoodCondition(!duracion.isNegative() && !duracion.isZero());
 		LocalDate hoy = LocalDate.now();
-		Checkers.checkCondition(fecha.equals(hoy ) || fecha.isBefore(hoy));
+		Checkers.checkGoodCondition(fecha.equals(hoy ) || fecha.isBefore(hoy));
 		
 		this.fecha = fecha;
 		this.lugar = lugar;
@@ -61,7 +61,7 @@ public class Avistamiento implements Comparable<Avistamiento>{
 	}
 
 	public void setDuracion(Duration duracion) {
-		Checkers.checkCondition(!duracion.isNegative() && !duracion.isZero());
+		Checkers.checkGoodCondition(!duracion.isNegative() && !duracion.isZero());
 		this.duracion = duracion;
 	}
 

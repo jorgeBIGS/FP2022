@@ -5,7 +5,7 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
-public recordd PersonaInmutable(
+public record PersonaInmutable(
 		String nombre, List<String> apellidos, 
 		LocalDate fechaNacimiento) {
 	

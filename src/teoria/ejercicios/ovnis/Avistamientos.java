@@ -107,4 +107,11 @@ public class Avistamientos {
 		return result;
 	}
 
+	@Override
+	public String toString() {
+		return "Avistamientos [avistamientos=" + avistamientos.size() + "]";
+	}
+	
+	
+
 }
