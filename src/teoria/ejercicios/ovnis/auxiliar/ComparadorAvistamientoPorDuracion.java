@@ -8,8 +8,12 @@ public class ComparadorAvistamientoPorDuracion implements Comparator<Avistamient
 
 	
 	public int compare(Avistamiento o1, Avistamiento o2) {
-		//TODO: Esto no está bien. Revisitar.
-		return o1.getDuracion().compareTo(o2.getDuracion());
+		
+		int cmp = o1.getDuracion().compareTo(o2.getDuracion());
+		if(cmp == 0) {
+			cmp = o1.compareTo(o2);
+		}
+		return cmp;
 	}
 
 }
