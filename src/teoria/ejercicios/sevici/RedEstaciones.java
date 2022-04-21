@@ -8,7 +8,7 @@ import teoria.ejercicios.ovnis.Coordenada;
 
 public interface RedEstaciones {
 
-	void añadirEstacion(Estacion e);
+	void anyadirEstacion(Estacion e);
 
 	List<Estacion> getEstaciones();
 

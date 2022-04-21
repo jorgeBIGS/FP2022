@@ -42,7 +42,7 @@ public class RedEstacionesImpl implements RedEstaciones {
 		return "RedEstaciones [estaciones=" + estaciones + "]";
 	}
 
-	public void añadirEstacion(Estacion e) {
+	public void anyadirEstacion(Estacion e) {
 		estaciones.add(e);
 	}
 

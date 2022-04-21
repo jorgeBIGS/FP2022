@@ -28,7 +28,7 @@ public class RedEstacionesImpl2 implements RedEstaciones {
 
 	public boolean equals(Object obj) {
 		boolean result = false;
-		if(obj instanceof RedEstaciones) {
+		if (obj instanceof RedEstaciones) {
 			RedEstaciones aux = (RedEstaciones) obj;
 			Objects.equals(estaciones, aux.getEstaciones());
 		}
@@ -39,68 +39,46 @@ public class RedEstacionesImpl2 implements RedEstaciones {
 		return "RedEstaciones [estaciones=" + estaciones + "]";
 	}
 
-	
-	public void añadirEstacion(Estacion e) {
+	public void anyadirEstacion(Estacion e) {
 		estaciones.add(e);
 	}
 
 	public List<Estacion> getEstaciones() {
 		return Collections.unmodifiableList(estaciones);
 	}
-	
 
 	public Integer getNumeroEstaciones() {
 		return estaciones.size();
 	}
 
 	public List<Estacion> getEstacionesBicisDisponibles() {
-		List<Estacion> result = new ArrayList<>();
-		for (Estacion e : estaciones) {
-			if (e.getTieneBicisDisponibles()) {
-				result.add(e);
-			}
-		}
-		return result;
+		return null;
 	}
 
-	public Collection<Estacion> getEstacionesBicisDisponibles(int k) {
-		Collection<Estacion> result = new ArrayList<>();
-		for (Estacion e : estaciones) {
-			if (e.getBicisDisponibles() >= k) {
-				result.add(e);
-			}
-		}
-		return result;
-	}
-	
-	public Collection<Estacion> getEstacionesCercanas(Coordenada cs, double d) {
-		Collection<Estacion> result = new TreeSet<>();
-		for (Estacion e : estaciones) {
-			if (e.getTieneBicisDisponibles() && 
-					e.getUbicacion().getDistancia(cs) <= d) {
-				result.add(e);
-			}
-		}
-		return result;
+	public List<Estacion> getEstacionesBicisDisponibles(int k) {
+		return null;
 	}
 
-//	: obtiene un conjunto con la ubicación de 
+	public SortedSet<Estacion> getEstacionesCercanas(Coordenada cs, double d) {
+		return null;
+	}
+
+//	: obtiene un conjunto con la ubicaciï¿½n de 
 //	todas las estaciones.
 	public Set<Coordenada> getUbicacionEstaciones() {
 		return null;
 	}
 
-//	: obtiene un conjunto con la ubicación de las estaciones que tienen un número mínimo de bicicletas disponibles.
+//	: obtiene un conjunto con la ubicaciï¿½n de las estaciones que tienen un nï¿½mero mï¿½nimo de bicicletas disponibles.
 	public Set<Coordenada> getUbicacionEstacionesDisponibles(int k) {
 		return null;
 	}
 
-//	: obtiene la estación que tiene más bicicletas 
+//	: obtiene la estaciï¿½n que tiene mï¿½s bicicletas 
 //	disponibles
 	public Estacion getEstacionMasBicisDisponibles() {
 		return null;
 
 	}
-
 
 }
