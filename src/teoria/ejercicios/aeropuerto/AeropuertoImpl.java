@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -114,6 +115,60 @@ public class AeropuertoImpl implements Aeropuerto {
 			}
 		}
 		return res;
+	}
+
+	@Override
+	public Map<String, Long> getNumeroVuelosPorCiudad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Integer> getNumeroVuelosIntegerPorCiudad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SortedMap<String, Long> getNumeroVuelosPorCiudadPorOrdenAlfabetico() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SortedMap<String, Long> getNumeroVuelosPorCiudadPorOrdenAlfabeticoInverso() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, List<Long>> getRetrasosPorCiudad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Double> getRetrasoMedioPorCiudad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean existeVueloConDestinoA(String ciudad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean todosVuelosCompanyiaSinRetraso() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer getEdadMaximaPasajeros() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
