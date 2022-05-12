@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Vuelo {
+public class Vuelo implements Comparable<Vuelo>{
 	private LocalDate fecha;
 	private LocalTime horaPlanificada;
 	private String codigo, ciudad;
@@ -58,6 +58,11 @@ public class Vuelo {
 							getHoraEfectiva()).toMinutes();
 		}
 		return result;
+	}
+	@Override
+	public int compareTo(Vuelo o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

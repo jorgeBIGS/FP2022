@@ -1,6 +1,9 @@
 package teoria.ejercicios.aeropuerto;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -39,11 +42,27 @@ public class AeropuertoImpl2 implements Aeropuerto{
 				//(Vuelo v)->v.getEstado();
 		return vuelos.stream().map(function).collect(Collectors.toList());
 	}
-
-	public Set<String> getCiudadesOrigenDistintas() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public List<EstadoVuelo> getEstadoVuelos() {
+		//predicate solo un argumento al ser Boolean
+		//entra->sale
+		Function<Vuelo,EstadoVuelo> function= Vuelo::getEstado;
+				//(Vuelo v)->v.getEstado();
+		return vuelos.stream().map(function).collect(Collectors.toList());
 	}
 	
+	public Set<String> getCiudadesOrigenDistintas() {
+		return getVuelos().stream().filter(v->v.getDireccion().equals(DireccionVuelo.OUT)).map(Vuelo::getCiudad).distinct().collect(Collectors.toSet());
+	}
+	
+	public Vuelo getVueloMayorRetraso() {
+		Comparator<Vuelo> comparador= Comparator.comparing(Vuelo::getDiferenciaMinutos).thenComparing(Comparator.naturalOrder()).reversed(); 
+		Optional<Vuelo> optional= getVuelos().stream().max(comparador);
+		return optional.orElse(null);
+	}
+	
+	public Map<String, List<Vuelo>> getVuelosPorCiudad() {
+		return getVuelos().stream().collect(Collectors.groupingBy(Vuelo::getCiudad));
+	}
 	
 }
