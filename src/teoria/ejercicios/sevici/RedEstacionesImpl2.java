@@ -28,7 +28,7 @@ public class RedEstacionesImpl2 implements RedEstaciones {
 
 	public boolean equals(Object obj) {
 		boolean result = false;
-		if (obj instanceof RedEstaciones) {
+		if(obj instanceof RedEstaciones) {
 			RedEstaciones aux = (RedEstaciones) obj;
 			Objects.equals(estaciones, aux.getEstaciones());
 		}
@@ -39,6 +39,7 @@ public class RedEstacionesImpl2 implements RedEstaciones {
 		return "RedEstaciones [estaciones=" + estaciones + "]";
 	}
 
+	
 	public void anyadirEstacion(Estacion e) {
 		estaciones.add(e);
 	}
@@ -46,21 +47,41 @@ public class RedEstacionesImpl2 implements RedEstaciones {
 	public List<Estacion> getEstaciones() {
 		return Collections.unmodifiableList(estaciones);
 	}
+	
 
 	public Integer getNumeroEstaciones() {
 		return estaciones.size();
 	}
 
 	public List<Estacion> getEstacionesBicisDisponibles() {
-		return null;
+		List<Estacion> result = new ArrayList<>();
+		for (Estacion e : estaciones) {
+			if (e.getTieneBicisDisponibles()) {
+				result.add(e);
+			}
+		}
+		return result;
 	}
 
 	public List<Estacion> getEstacionesBicisDisponibles(int k) {
-		return null;
+		List<Estacion> result = new ArrayList<Estacion>();
+		for (Estacion e : estaciones) {
+			if (e.getBicisDisponibles() >= k) {
+				result.add(e);
+			}
+		}
+		return result;
 	}
-
+	
 	public SortedSet<Estacion> getEstacionesCercanas(Coordenada cs, double d) {
-		return null;
+		SortedSet<Estacion> result = new TreeSet <Estacion>();
+		for (Estacion e : estaciones) {
+			if (e.getTieneBicisDisponibles() && 
+					e.getUbicacion().getDistancia(cs) <= d) {
+				result.add(e);
+			}
+		}
+		return result;
 	}
 
 //	: obtiene un conjunto con la ubicaci�n de 
@@ -80,5 +101,6 @@ public class RedEstacionesImpl2 implements RedEstaciones {
 		return null;
 
 	}
+
 
 }
