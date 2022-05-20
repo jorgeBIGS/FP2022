@@ -17,6 +17,11 @@ public class Vuelo implements Comparable<Vuelo> {
 	private DireccionVuelo direccion;
 
 	private List<Persona> pasajeros;
+	
+	
+	public Vuelo(String s) {
+		
+	}
 
 	public List<Persona> getPasajeros() {
 		return pasajeros;
@@ -88,6 +93,11 @@ public class Vuelo implements Comparable<Vuelo> {
 
 	@Override
 	public int compareTo(Vuelo o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getDiferenciaEnMinutos() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -1,5 +1,8 @@
 package teoria.ejercicios.aeropuerto;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,7 +29,7 @@ public class AeropuertoImpl implements Aeropuerto {
 	public AeropuertoImpl() {
 		vuelos = new TreeSet<>();
 	}
-
+	
 	public Set<Vuelo> getVuelosCancelados() {
 		Set<Vuelo> result = new HashSet<>();
 
@@ -118,10 +121,237 @@ public class AeropuertoImpl implements Aeropuerto {
 	}
 
 	@Override
+	public Boolean existeVueloDestino(String ciudad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean todosVuelosCompanyiaSinRetraso(String companyia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNumeroVuelosSalida() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNumeroVuelosDestino(String ciudad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNumeroVuelosCancelados() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNumeroVuelosCompanyia(String companyia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNumeroVuelosConRetraso() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<String> getCompanyiasVuelos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNumeroCiudadesDestino() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<String> getModelosAvionesCompanyia(String companyia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getMinutosRetrasoAcumuladosCompanyia(String companyia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getMediaMinutosRetrasoCiudad(String ciudad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<DayOfWeek> getDiasSemanaConVuelosDestino(String ciudad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Vuelo getVueloMasTempranoDestino(String ciudad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vuelo getPrimerVueloCompanyia(String companyia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getPrimerosDestinos(Integer n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void desviaVuelosCiudad(String ciudad, String nuevaCiudad) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	@Override
+	public Map<LocalDate, List<Vuelo>> getVuelosPorFecha() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Set<String>> getModelosPorCompanyia() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public Map<String, Long> getNumeroVuelosPorCiudad() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Map<String, Integer> getNumeroVuelosConRetrasoPorCompanyia() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SortedMap<Integer, Long> getNumeroSalidasPorHora() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Long> getRetrasoAcumuladoPorCompanyia() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Double> getRetrasoMedioPorCompanyia() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Vuelo> getVueloMasRetrasoPorCompanyia() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Vuelo> getVueloMasTempranoPorCiudad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Double> getPorcentajeVuelosConRetrasoPorCompanyia() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<LocalDate, List<String>> getNPrimerasCiudadesPorFecha(Integer n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<Month, Integer> getNumeroDestinosDiferentesPorMes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getModeloMasUtilizadoCompanyia(String companyia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getDestinoMasVuelos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCompanyiaMasOperaciones() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<String> getCompanyiasConAlMenosNVuelos(Integer n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getCompanyiasMasRetraso(Integer n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vuelo getVueloConModelo(String modelo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCompanyiaTodosVuelosConRetraso() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void escribeDestinos(String nombreFichero, String companyia) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void escribeCompanyias(String nombreFichero) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 	@Override
 	public Map<String, Integer> getNumeroVuelosIntegerPorCiudad() {
@@ -154,21 +384,13 @@ public class AeropuertoImpl implements Aeropuerto {
 	}
 
 	@Override
-	public Boolean existeVueloConDestinoA(String ciudad) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean todosVuelosCompanyiaSinRetraso() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Integer getEdadMaximaPasajeros() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+
+	
 
 }
