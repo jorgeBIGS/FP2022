@@ -18,6 +18,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import teoria.utiles.Ficheros;
 import tipos.persona.Persona;
 
 public class AeropuertoImpl2 implements Aeropuerto {
@@ -70,6 +71,19 @@ public class AeropuertoImpl2 implements Aeropuerto {
 
 	public Map<String, Long> getNumeroVuelosPorCiudad() {
 		return getVuelos().stream().collect(Collectors.groupingBy(Vuelo::getCiudad, Collectors.counting()));
+	}
+	
+	public SortedMap<String, Long> getNumeroVuelosPorCiudadOrdenadosPorNumVuelos(){
+		Map<String, Long> numVuelosPorCiudad = 
+				getNumeroVuelosPorCiudad();
+		Comparator<String> cmp = 
+				Comparator.comparing(ciudad->numVuelosPorCiudad.get(ciudad));
+		cmp = cmp.
+				thenComparing(Comparator.naturalOrder());
+		SortedMap<String, Long> result = 
+				new TreeMap<>(cmp);
+		result.putAll(numVuelosPorCiudad);
+		return result;
 	}
 
 	public SortedMap<String, Long> getNumeroVuelosPorCiudadPorOrdenAlfabeticoInverso() {
@@ -153,25 +167,47 @@ public class AeropuertoImpl2 implements Aeropuerto {
 	}
 
 	public void desviaVuelosCiudad(String ciudad, String nuevaCiudad) {
+		getVuelos().stream().filter(v -> v.getDireccion().equals(DireccionVuelo.OUT) && v.getCiudad().equals(ciudad))
+				.forEach(v -> v.setCiudad(nuevaCiudad));
 
 	}
 
 	public Map<String, Set<String>> getModelosPorCompanyia() {
-		return null;
+//		Map<String, List<Vuelo>> aux = getVuelos().stream().collect(
+		// Collectors.groupingBy(Vuelo::getCompanyia));
+//		return aux.entrySet().stream()
+//				.collect(Collectors.toMap(
+//						e -> e.getKey(), 
+//						e -> e.getValue().stream().map(Vuelo::getModeloAvion)
+//						.collect(Collectors.toSet())));
+
+		return getVuelos().stream().collect(Collectors.groupingBy(Vuelo::getCompanyia,
+				Collectors.mapping(Vuelo::getModeloAvion, Collectors.toSet())));
 	}
 
 	public Map<LocalDate, List<String>> getNPrimerasCiudadesPorFecha(Integer n) {
 
-		return null;
+		Comparator<Vuelo> cmp = Comparator.comparing(Vuelo::getHoraPlanificada)
+				.thenComparing(Comparator.naturalOrder());
+		Map<LocalDate, List<String>> aux = getVuelos().stream().sorted(cmp)
+				.collect(Collectors.groupingBy(Vuelo::getFecha, Collectors.collectingAndThen(
+						Collectors.mapping(Vuelo::getCiudad, Collectors.toList()), l -> l.stream().limit(n).toList())));
+
+		return aux;
 	}
 
 	public Map<Month, Integer> getNumeroDestinosDiferentesPorMes() {
 
-		return null;
+		return getVuelos().stream().filter(v -> v.getDireccion().equals(DireccionVuelo.OUT))
+				.collect(Collectors.groupingBy(v -> v.getFecha().getMonth(), Collectors.mapping(Vuelo::getCiudad,
+						Collectors.collectingAndThen(Collectors.toSet(), s -> s.size()))));
 	}
 
 	public String getModeloMasUtilizadoCompanyia(String companyia) {
-
+		//1. Establecer la fuente de datos: el stream que resuelve.
+		//2. Establecer secuencia de esquemas que resuelven el problema: 
+		// filter, map.
+		//3. Rellenar huecos con funcionales.
 		return null;
 	}
 
@@ -181,7 +217,10 @@ public class AeropuertoImpl2 implements Aeropuerto {
 	}
 
 	public void escribeCompanyias(String nombreFichero) {
-
+		Set<String> companyias = getVuelos().stream().map(Vuelo::getCompanyia).collect(Collectors.toSet());
+		Ficheros.escribeFichero(nombreFichero, companyias);
+		
+		
 	}
 
 	@Override
